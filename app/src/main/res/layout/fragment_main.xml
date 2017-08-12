@@ -28,6 +28,7 @@
 
                 <!--icon-->
                 <ImageView
+                    android:id="@+id/imvIcon1"
                     android:src="@drawable/icon1"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="@dimen/icon"
@@ -58,11 +59,11 @@
 
                 <!--icon-->
                 <ImageView
-                    android:src="@drawable/icon2"
-                    android:layout_gravity="center_horizontal"
+                    android:id="@+id/imvIcon2"
                     android:layout_width="@dimen/icon"
-                    android:layout_height="@dimen/icon" />
-
+                    android:layout_height="@dimen/icon"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/icon2" />
 
 
                 <!--Label-->
@@ -97,6 +98,7 @@
 
                 <!--icon-->
                 <ImageView
+                    android:id="@+id/imvIcon3"
                     android:src="@drawable/icon3"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="@dimen/icon"
@@ -127,6 +129,7 @@
 
                 <!--icon-->
                 <ImageView
+                    android:id="@+id/imvicon4"
                     android:src="@drawable/icon4"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="@dimen/icon"
@@ -139,7 +142,7 @@
                     android:layout_gravity="center_horizontal"
                     android:textStyle="bold"
                     android:textSize="@dimen/h2"
-                    android:text="Label"
+                    android:text="@string/label4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
@@ -165,6 +168,7 @@
 
                 <!--icon-->
                 <ImageView
+                    android:id="@+id/imvIcon5"
                     android:src="@drawable/icon3"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="@dimen/icon"
