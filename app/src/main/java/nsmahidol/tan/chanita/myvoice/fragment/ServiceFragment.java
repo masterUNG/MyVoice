@@ -50,7 +50,20 @@ public class ServiceFragment extends Fragment{
         //Show Gender
         showGender();
 
+        //Back Controller
+        backController();
+
     } //onActivityCreate
+
+    private void backController() {
+        backImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().getSupportFragmentManager()
+                        .popBackStack();
+            }
+        });
+    }
 
     private void showGender() {
         genderImgeView.setImageResource(genderInts[genderAnInt]);
