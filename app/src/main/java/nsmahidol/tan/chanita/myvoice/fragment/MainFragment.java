@@ -32,9 +32,22 @@ public class MainFragment extends Fragment {
 
         //Icon1 Controller
         icon1Controller();
-
+// Tutorial Controller
+        tutorialController();
 
     } // onActivityCreate
+
+    private void tutorialController() {
+        ImageView imageView = getView().findViewById(R.id.imvIcon2);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+
+            } //onClick
+        });
+    }
 
     private void icon1Controller() {
         ImageView imageView = getView().findViewById(R.id.imvIcon1);
