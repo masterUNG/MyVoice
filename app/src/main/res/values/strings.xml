@@ -1,9 +1,19 @@
 <resources>
     <string name="app_name">My Voice</string>
     <string name="label1">เริ่มใช้งาน</string>
-    <string name="label2">คคู่มือการใช้งาน</string>
+    <string name="label2">คู่มือการใช้งาน</string>
     <string name="label3">กิตติกรรมประกาศ</string>
     <string name="label4">ประเมินความพึงพอใจ</string>
     <string name="label5">ออกจากแอพพลิเคชัน</string>
+
+    <string name="label6">ความต้องการ</string>
+    <string name="label7">ความรู้สึก</string>
+    <string name="label8">คำถาม</string>
+    <string name="label9">เร่งด่วน</string>
+
+    <string name="title1">หน้าหลัก</string>
+    <string name="chose_gender">เลือกเพศ</string>
+
+
 </resources>
 
