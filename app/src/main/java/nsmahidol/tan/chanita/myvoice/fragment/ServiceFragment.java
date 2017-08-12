@@ -7,18 +7,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import nsmahidol.tan.chanita.myvoice.R;
 
 /**
- * Created by ADMIN on 12/8/2560.
+ * Created by masterung on 8/12/2017 AD.
  */
 
 public class ServiceFragment extends Fragment{
 
-    private ImageView backImageView, genderImgeView;
+    private ImageView backImageView, genderImageView;
     private int[] genderInts = new int[]{R.drawable.boy, R.drawable.girl};
     private int genderAnInt = 0;
+
 
     public static ServiceFragment serviceInstance(int intGender) {
 
@@ -30,12 +32,13 @@ public class ServiceFragment extends Fragment{
         return serviceFragment;
     }
 
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_service, container, false);
         return view;
-    } //onCreateview
+    }   // onCreateView
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -45,7 +48,7 @@ public class ServiceFragment extends Fragment{
         initialView();
 
         //Get Integer From MainFragment
-        getinteger();
+        getInteger();
 
         //Show Gender
         showGender();
@@ -53,7 +56,28 @@ public class ServiceFragment extends Fragment{
         //Back Controller
         backController();
 
-    } //onActivityCreate
+        //Gender Controller
+        genderController();
+
+
+    }   // onActivityCreate
+
+    private void genderController() {
+        genderImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (genderAnInt == 0) {
+                    genderAnInt = 1;
+                    showGender();
+                } else if (genderAnInt == 1) {
+                    genderAnInt = 0;
+                    showGender();
+                }
+
+            }
+        });
+    }
 
     private void backController() {
         backImageView.setOnClickListener(new View.OnClickListener() {
@@ -66,15 +90,16 @@ public class ServiceFragment extends Fragment{
     }
 
     private void showGender() {
-        genderImgeView.setImageResource(genderInts[genderAnInt]);
+        genderImageView.setImageResource(genderInts[genderAnInt]);
     }
 
-    private void getinteger() {
+    private void getInteger() {
         genderAnInt = getArguments().getInt("Gender");
     }
 
     private void initialView() {
         backImageView = getView().findViewById(R.id.imvBack);
-        genderImgeView = getView().findViewById(R.id.imvGender);
+        genderImageView = getView().findViewById(R.id.imvGender);
     }
-} // Class
+
+}   // Class
