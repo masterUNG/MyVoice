@@ -57,7 +57,7 @@ public class MainFragment extends Fragment {
 
                         getActivity().getSupportFragmentManager()
                                 .beginTransaction()
-                                .replace(R.id.myContent, new ServiceFragment())
+                                .replace(R.id.myContent, ServiceFragment.serviceInstance(intGender[0]))
                                 .addToBackStack(null)
                                 .commit();
                         dialogInterface.dismiss();

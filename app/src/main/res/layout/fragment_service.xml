@@ -17,6 +17,7 @@
 
             <!--Back Icon-->
             <ImageView
+                android:id="@+id/imvBack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/ic_back" />
@@ -32,6 +33,7 @@
                 android:textStyle="bold" />
             <!--Gender Icon-->
             <ImageView
+                android:id="@+id/imvGender"
                 android:layout_width="wrap_content"
                 android:layout_height="?attr/actionBarSize"
                 android:layout_alignParentRight="true"
