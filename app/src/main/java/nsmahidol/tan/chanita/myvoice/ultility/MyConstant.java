@@ -15,6 +15,25 @@ public class MyConstant {
             "ความผ่อนคลาย"
     };
 
+    private String[] feelingStrings = new String[]{
+            "ร่างกาย",
+            "จิตใจ"
+    };
+
+    private String[] questionStrings = new String[]{
+            "พ่อแม่",
+            "ร่างกาย หรือ อาการ",
+            "เวลา"
+    };
+
+    public String[] getFeelingStrings() {
+        return feelingStrings;
+    }
+
+    public String[] getQuestionStrings() {
+        return questionStrings;
+    }
+
     public String[] getRequestStrings() {
         return requestStrings;
     }

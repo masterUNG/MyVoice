@@ -69,13 +69,43 @@ public class ServiceFragment extends Fragment{
         requestController();
 
         //Feeling Controller
+        feelingController();
 
         //Question Controller
+        questionController();
 
         //Emergency Controller
 
 
     }   // onActivityCreate
+
+    private void questionController() {
+        ImageView imageView = getView().findViewById(R.id.imvIcon3);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.myContent, RequestFragment.requestInstance(2))
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+    }
+
+    private void feelingController() {
+        ImageView imageView = getView().findViewById(R.id.imvIcon2);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.myContent, RequestFragment.requestInstance(1))
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+    }
 
     private void requestController() {
         ImageView imageView = getView().findViewById(R.id.imvIcon1);
@@ -84,7 +114,7 @@ public class ServiceFragment extends Fragment{
             public void onClick(View view) {
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.myContent, new RequestFragment())
+                        .replace(R.id.myContent, RequestFragment.requestInstance(0))
                         .addToBackStack(null)
                         .commit();
             }
