@@ -1,8 +1,11 @@
 package nsmahidol.tan.chanita.myvoice.fragment;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +22,7 @@ public class ServiceFragment extends Fragment{
 
     private ImageView backImageView, genderImageView;
     private int[] genderInts = new int[]{R.drawable.boy, R.drawable.girl};
-    private int genderAnInt = 0;
+    private int genderAnInt = 0, myVoiceGenderAnInt;    // 0 ==> Male, 1 ==> Female
 
 
     public static ServiceFragment serviceInstance(int intGender) {
@@ -50,6 +53,9 @@ public class ServiceFragment extends Fragment{
         //Get Integer From MainFragment
         getInteger();
 
+        //Get Value From Preference
+        getGenderFromPreference();
+
         //Show Gender
         showGender();
 
@@ -61,6 +67,12 @@ public class ServiceFragment extends Fragment{
 
 
     }   // onActivityCreate
+
+    private void getGenderFromPreference() {
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("MyVoice", Context.MODE_PRIVATE);
+        myVoiceGenderAnInt = sharedPreferences.getInt("Gender", 0);
+        Log.d("30SepV1", "ค่าที่รับได้จาก Preference ==> " + myVoiceGenderAnInt);
+    }
 
     private void genderController() {
         genderImageView.setOnClickListener(new View.OnClickListener() {

@@ -4,4 +4,5 @@
     <dimen name="h1">25sp</dimen>
     <dimen name="h2">18sp</dimen>
     <dimen name="padding">10dp</dimen>
+    <dimen name="footbar_icon">72dp</dimen>
 </resources>

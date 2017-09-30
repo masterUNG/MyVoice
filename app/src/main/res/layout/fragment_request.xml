@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <!--Toolbar-->
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:id="@+id/toolbarRequest"/>
+
+    <!--Content-->
+    <ListView
+        android:id="@+id/listviewRequest"
+        android:layout_above="@+id/footbarRequest"
+        android:layout_below="@+id/toolbarRequest"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+    <!--Footbar-->
+    <LinearLayout
+        android:id="@+id/footbarRequest"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--ความรู้สึก-->
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+
+            <!--icon-->
+            <ImageView
+                android:src="@drawable/icon1"
+                android:layout_width="@dimen/footbar_icon"
+                android:layout_height="@dimen/footbar_icon" />
+
+            <!--title-->
+            <TextView
+                android:text="@string/label7"
+                android:textSize="@dimen/h2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <!--คำถาม-->
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+
+            <!--icon-->
+            <ImageView
+                android:src="@drawable/icon2"
+                android:layout_width="@dimen/footbar_icon"
+                android:layout_height="@dimen/footbar_icon" />
+
+            <!--title-->
+            <TextView
+                android:text="@string/label8"
+                android:textSize="@dimen/h2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <!--เร่งด่วน-->
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+
+            <!--icon-->
+            <ImageView
+                android:src="@drawable/icon3"
+                android:layout_width="@dimen/footbar_icon"
+                android:layout_height="@dimen/footbar_icon" />
+
+            <!--title-->
+            <TextView
+                android:text="@string/label9"
+                android:textSize="@dimen/h2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <!--Home-->
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+
+            <!--icon-->
+            <ImageView
+                android:src="@drawable/icon4"
+                android:layout_width="@dimen/footbar_icon"
+                android:layout_height="@dimen/footbar_icon" />
+
+            <!--title-->
+            <TextView
+                android:text="@string/home"
+                android:textSize="@dimen/h2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>
