@@ -24,7 +24,20 @@ import nsmahidol.tan.chanita.myvoice.ultility.MyConstant;
 public class RequestFragment extends Fragment{
 
     //Explicit
-    private int genderAnInt;
+    private int genderAnInt, titleIndex;
+    private String[] titleStrings = new String[]{"ความต้องการ", "ความรู้สึก", "คำถาม"};
+
+    public static RequestFragment requestInstance(int index) {
+
+        RequestFragment requestFragment = new RequestFragment();
+        Bundle bundle = new Bundle();
+        bundle.putInt("Index", index);
+        requestFragment.setArguments(bundle);
+        return requestFragment;
+
+    }
+
+
 
     @Nullable
     @Override
@@ -53,14 +66,32 @@ public class RequestFragment extends Fragment{
 
     private void createListView() {
         ListView listView = getView().findViewById(R.id.listviewRequest);
-        MyConstant myConstant = new MyConstant();
-        String[] strings = myConstant.getRequestStrings();
+        String[] strings = findStringArray();
         ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter<String>(
                 getActivity(),
                 android.R.layout.simple_list_item_1,
                 strings
         );
         listView.setAdapter(stringArrayAdapter);
+    }
+
+    private String[] findStringArray() {
+
+        String[] strings = null;
+        MyConstant myConstant = new MyConstant();
+        switch (titleIndex) {
+            case 0:
+                strings = myConstant.getRequestStrings();
+                break;
+            case 1:
+                strings = myConstant.getFeelingStrings();
+                break;
+            case 2:
+                strings = myConstant.getQuestionStrings();
+                break;
+        }
+
+        return strings;
     }
 
     private void setupGender() {
@@ -72,8 +103,10 @@ public class RequestFragment extends Fragment{
     private void toolbarController() {
         Toolbar toolbar = getView().findViewById(R.id.toolbarRequest);
         ((MainActivity) getActivity()).setSupportActionBar(toolbar);
+
+        titleIndex = getArguments().getInt("Index", 0);
         ((MainActivity)getActivity()).getSupportActionBar()
-                .setTitle(getResources().getString(R.string.label6));
+                .setTitle(titleStrings[titleIndex]);
 
         ((MainActivity)getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
         ((MainActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
