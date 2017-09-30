@@ -1,5 +1,7 @@
 package nsmahidol.tan.chanita.myvoice.fragment;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -7,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import nsmahidol.tan.chanita.myvoice.MainActivity;
 import nsmahidol.tan.chanita.myvoice.R;
@@ -16,6 +19,9 @@ import nsmahidol.tan.chanita.myvoice.R;
  */
 
 public class RequestFragment extends Fragment{
+
+    //Explicit
+    private int genderAnInt;
 
     @Nullable
     @Override
@@ -30,10 +36,19 @@ public class RequestFragment extends Fragment{
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        //Setup Gender
+        setupGender();
+
         //Toolbar Controller
         toolbarController();
 
 
+    }
+
+    private void setupGender() {
+        SharedPreferences sharedPreferences = getActivity()
+                .getSharedPreferences("MyVoice", Context.MODE_PRIVATE);
+        genderAnInt = sharedPreferences.getInt("Gender", 0);
     }
 
     private void toolbarController() {
@@ -53,6 +68,11 @@ public class RequestFragment extends Fragment{
                 getActivity().getSupportFragmentManager().popBackStack();
             }
         });
+
+        //Setup Image Gender
+        ImageView imageView = getView().findViewById(R.id.imvGender);
+        int[] ints = new int[]{R.drawable.boy, R.drawable.girl};
+        imageView.setImageResource(ints[genderAnInt]);
 
 
 
