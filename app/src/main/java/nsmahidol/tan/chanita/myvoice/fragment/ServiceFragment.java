@@ -63,13 +63,37 @@ public class ServiceFragment extends Fragment{
         backController();
 
         //Gender Controller
-        genderController();
+        //genderController();
+
+        //Request Controller
+        requestController();
+
+        //Feeling Controller
+
+        //Question Controller
+
+        //Emergency Controller
 
 
     }   // onActivityCreate
 
+    private void requestController() {
+        ImageView imageView = getView().findViewById(R.id.imvIcon1);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.myContent, new RequestFragment())
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+    }
+
     private void getGenderFromPreference() {
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("MyVoice", Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getActivity()
+                .getSharedPreferences("MyVoice", Context.MODE_PRIVATE);
         myVoiceGenderAnInt = sharedPreferences.getInt("Gender", 0);
         Log.d("30SepV1", "ค่าที่รับได้จาก Preference ==> " + myVoiceGenderAnInt);
     }
