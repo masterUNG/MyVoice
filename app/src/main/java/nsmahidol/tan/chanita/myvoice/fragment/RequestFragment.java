@@ -9,10 +9,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 
 import nsmahidol.tan.chanita.myvoice.MainActivity;
 import nsmahidol.tan.chanita.myvoice.R;
+import nsmahidol.tan.chanita.myvoice.ultility.MyConstant;
 
 /**
  * Created by masterung on 30/9/2017 AD.
@@ -42,7 +45,22 @@ public class RequestFragment extends Fragment{
         //Toolbar Controller
         toolbarController();
 
+        //Create ListView
+        createListView();
 
+
+    }
+
+    private void createListView() {
+        ListView listView = getView().findViewById(R.id.listviewRequest);
+        MyConstant myConstant = new MyConstant();
+        String[] strings = myConstant.getRequestStrings();
+        ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter<String>(
+                getActivity(),
+                android.R.layout.simple_list_item_1,
+                strings
+        );
+        listView.setAdapter(stringArrayAdapter);
     }
 
     private void setupGender() {
