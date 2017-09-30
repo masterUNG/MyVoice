@@ -1,11 +1,14 @@
 package nsmahidol.tan.chanita.myvoice.fragment;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -68,6 +71,9 @@ public class MainFragment extends Fragment {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         intGender[0] = i;
 
+                        Log.d("30SepV1", "เพศที่เลือก ==> " + intGender[0]);
+                        saveGender(intGender[0]);
+
                         getActivity().getSupportFragmentManager()
                                 .beginTransaction()
                                 .replace(R.id.myContent, ServiceFragment.serviceInstance(intGender[0]))
@@ -82,5 +88,15 @@ public class MainFragment extends Fragment {
 
             } //onClick
         });
+    }
+
+    private void saveGender(int intGender) {
+
+        SharedPreferences sharedPreferences = getActivity()
+                .getSharedPreferences("MyVoice", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt("Gender", intGender);
+        editor.commit();
+
     }
 } // Main Class
