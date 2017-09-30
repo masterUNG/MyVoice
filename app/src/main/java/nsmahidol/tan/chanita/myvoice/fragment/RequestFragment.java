@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -73,6 +74,17 @@ public class RequestFragment extends Fragment{
                 strings
         );
         listView.setAdapter(stringArrayAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction().replace(R.id.myContent, new DisplayFragment())
+                        .addToBackStack(null)
+                        .commit();
+
+            }
+        });
     }
 
     private String[] findStringArray() {
