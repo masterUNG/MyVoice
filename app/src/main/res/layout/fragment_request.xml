@@ -66,6 +66,28 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+
+            <!--icon-->
+            <ImageView
+                android:src="@drawable/icon1"
+                android:layout_width="@dimen/footbar_icon"
+                android:layout_height="@dimen/footbar_icon" />
+
+            <!--title-->
+            <TextView
+                android:text="@string/label7"
+                android:textSize="@dimen/h2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
         <!--คำถาม-->
         <LinearLayout
             android:orientation="vertical"
