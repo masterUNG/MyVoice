@@ -123,12 +123,14 @@ public class RequestFragment extends Fragment{
         ((MainActivity)getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
         ((MainActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        toolbar.setNavigationIcon(R.mipmap.ic_back);
+        toolbar.setNavigationIcon(R.drawable.ic_action_home);
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getActivity().getSupportFragmentManager().popBackStack();
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.myContent, new MainFragment()).commit();
             }
         });
 

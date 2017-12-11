@@ -150,8 +150,10 @@ public class ServiceFragment extends Fragment{
         backImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 getActivity().getSupportFragmentManager()
-                        .popBackStack();
+                        .beginTransaction()
+                        .replace(R.id.myContent, new MainFragment()).commit();
             }
         });
     }

@@ -8,12 +8,14 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import nsmahidol.tan.chanita.myvoice.MainActivity;
 import nsmahidol.tan.chanita.myvoice.R;
 
 /**
@@ -33,6 +35,10 @@ public class MainFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+//        Create Toolbar
+        createToolbar();
+
+
 //        เริ่มใช้งาน
         icon1Controller();
 
@@ -40,14 +46,48 @@ public class MainFragment extends Fragment {
         tutorialController();
 
 //        กิตติกรรมประกาศ
+        icon3Controller();
 
 //        ประเมินความพึงพอใจ
-
+        icon4Controller();
 
 //        ออกจากแอพพลิเคชัน
         exitController();
 
     } // onActivityCreate
+
+    private void createToolbar() {
+        Toolbar toolbar = getView().findViewById(R.id.toolbarMain);
+        ((MainActivity)getActivity()).setSupportActionBar(toolbar);
+
+        ((MainActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
+        ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        toolbar.setNavigationIcon(R.drawable.ic_action_home);
+
+        ((MainActivity) getActivity()).getSupportActionBar().setTitle(getString(R.string.title_main));
+
+    }
+
+    private void icon4Controller() {
+        ImageView imageView = getView().findViewById(R.id.imvicon4);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+    }
+
+    private void icon3Controller() {
+        ImageView imageView = getView().findViewById(R.id.imvIcon3);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+    }
 
     private void exitController() {
         ImageView imageView = getView().findViewById(R.id.imvIcon5);
@@ -96,7 +136,6 @@ public class MainFragment extends Fragment {
                         getActivity().getSupportFragmentManager()
                                 .beginTransaction()
                                 .replace(R.id.myContent, ServiceFragment.serviceInstance(intGender[0]))
-                                .addToBackStack(null)
                                 .commit();
                         dialogInterface.dismiss();
                     }

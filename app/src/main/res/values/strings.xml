@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Voice</string>
+    <string name="app_name">My Voice Board</string>
     <string name="label1">เริ่มใช้งาน</string>
     <string name="label2">คู่มือการใช้งาน</string>
     <string name="label3">กิตติกรรมประกาศ</string>
@@ -15,6 +15,7 @@
     <string name="chose_gender">เลือกเพศ</string>
     <string name="home">Home</string>
 
+    <string name="title_main">หน้าแรก</string>
 
 </resources>
 

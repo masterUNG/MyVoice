@@ -17,10 +17,11 @@
 
             <!--Back Icon-->
             <ImageView
+                android:layout_centerVertical="true"
                 android:id="@+id/imvBack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/ic_back" />
+                android:src="@drawable/ic_action_home" />
 
             <!--Title-->
             <TextView
