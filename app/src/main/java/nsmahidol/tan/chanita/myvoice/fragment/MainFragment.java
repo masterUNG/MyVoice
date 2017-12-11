@@ -33,12 +33,31 @@ public class MainFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        //Icon1 Controller
+//        เริ่มใช้งาน
         icon1Controller();
-// Tutorial Controller
+
+//      คู่มือการใช้งาน
         tutorialController();
 
+//        กิตติกรรมประกาศ
+
+//        ประเมินความพึงพอใจ
+
+
+//        ออกจากแอพพลิเคชัน
+        exitController();
+
     } // onActivityCreate
+
+    private void exitController() {
+        ImageView imageView = getView().findViewById(R.id.imvIcon5);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().finish();
+            }
+        });
+    }
 
     private void tutorialController() {
         ImageView imageView = getView().findViewById(R.id.imvIcon2);
