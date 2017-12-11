@@ -2,6 +2,7 @@ package nsmahidol.tan.chanita.myvoice.fragment;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -22,11 +23,13 @@ import nsmahidol.tan.chanita.myvoice.ultility.MyConstant;
  * Created by masterung on 30/9/2017 AD.
  */
 
-public class RequestFragment extends Fragment{
+public class RequestFragment extends Fragment {
 
     //Explicit
     private int genderAnInt, titleIndex;
-    private String[] titleStrings = new String[]{"ความต้องการ", "ความรู้สึก", "คำถาม"};
+    private String[] titleStrings = new String[]{"ความต้องการ", "ความรู้สึก", "คำถาม", "เร่งด่วน"};
+    private ImageView icon1ImageView, icon2ImageView, icon3ImageView, icon4ImageView;
+
 
     public static RequestFragment requestInstance(int index) {
 
@@ -37,7 +40,6 @@ public class RequestFragment extends Fragment{
         return requestFragment;
 
     }
-
 
 
     @Nullable
@@ -62,12 +64,63 @@ public class RequestFragment extends Fragment{
         //Create ListView
         createListView();
 
+//        Image Controller
+        imageController();
+    }
+
+    private void imageController() {
+        icon1ImageView = getView().findViewById(R.id.imvIcon1);
+        icon2ImageView = getView().findViewById(R.id.imvIcon2);
+        icon3ImageView = getView().findViewById(R.id.imvIcon3);
+        icon4ImageView = getView().findViewById(R.id.imvicon4);
+
+        icon1ImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                titleIndex = 0;
+                createListView();
+                toolbarController();
+            }
+        });
+
+        icon2ImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                titleIndex = 1;
+                createListView();
+                toolbarController();
+            }
+        });
+
+        icon3ImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                titleIndex = 2;
+                createListView();
+                toolbarController();
+            }
+        });
+
+        icon4ImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                titleIndex = 3;
+                createListView();
+                toolbarController();
+            }
+        });
 
     }
 
+
     private void createListView() {
         ListView listView = getView().findViewById(R.id.listviewRequest);
-        String[] strings = findStringArray();
+        final String[] strings = findStringArray();
         ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter<String>(
                 getActivity(),
                 android.R.layout.simple_list_item_1,
@@ -79,7 +132,7 @@ public class RequestFragment extends Fragment{
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
                 getActivity().getSupportFragmentManager()
-                        .beginTransaction().replace(R.id.myContent, new DisplayFragment())
+                        .beginTransaction().replace(R.id.myContent, DisplayFragment.displayInstance(strings[i]))
                         .addToBackStack(null)
                         .commit();
 
@@ -101,6 +154,10 @@ public class RequestFragment extends Fragment{
             case 2:
                 strings = myConstant.getQuestionStrings();
                 break;
+            case 3:
+                strings = myConstant.getEmergencyStrings();
+                break;
+
         }
 
         return strings;
@@ -110,18 +167,23 @@ public class RequestFragment extends Fragment{
         SharedPreferences sharedPreferences = getActivity()
                 .getSharedPreferences("MyVoice", Context.MODE_PRIVATE);
         genderAnInt = sharedPreferences.getInt("Gender", 0);
+
+        titleIndex = getArguments().getInt("Index", 0);
+
+
     }
 
     private void toolbarController() {
+
         Toolbar toolbar = getView().findViewById(R.id.toolbarRequest);
         ((MainActivity) getActivity()).setSupportActionBar(toolbar);
 
-        titleIndex = getArguments().getInt("Index", 0);
-        ((MainActivity)getActivity()).getSupportActionBar()
+
+        ((MainActivity) getActivity()).getSupportActionBar()
                 .setTitle(titleStrings[titleIndex]);
 
-        ((MainActivity)getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
-        ((MainActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ((MainActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
+        ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         toolbar.setNavigationIcon(R.drawable.ic_action_home);
 
@@ -138,8 +200,6 @@ public class RequestFragment extends Fragment{
         ImageView imageView = getView().findViewById(R.id.imvGender);
         int[] ints = new int[]{R.drawable.boy, R.drawable.girl};
         imageView.setImageResource(ints[genderAnInt]);
-
-
 
 
     }

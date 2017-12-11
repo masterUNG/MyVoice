@@ -76,9 +76,25 @@ public class ServiceFragment extends Fragment{
         questionController();
 
         //Emergency Controller
-
+        emergencyController();
 
     }   // onActivityCreate
+
+    private void emergencyController() {
+        ImageView imageView = getView().findViewById(R.id.imvicon4);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.myContent, RequestFragment.requestInstance(3))
+                        .addToBackStack(null)
+                        .commit();
+
+
+            }
+        });
+    }
 
     private void questionController() {
         ImageView imageView = getView().findViewById(R.id.imvIcon3);
