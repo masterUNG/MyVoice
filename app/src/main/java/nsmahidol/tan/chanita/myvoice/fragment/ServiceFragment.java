@@ -25,6 +25,7 @@ public class ServiceFragment extends Fragment{
     private int genderAnInt = 0, myVoiceGenderAnInt;    // 0 ==> Male, 1 ==> Female
 
 
+
     public static ServiceFragment serviceInstance(int intGender) {
 
         ServiceFragment serviceFragment = new ServiceFragment();
