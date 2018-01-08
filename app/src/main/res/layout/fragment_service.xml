@@ -65,7 +65,7 @@
             <!--icon-->
             <ImageView
                 android:id="@+id/imvIcon1"
-                android:src="@drawable/icon1"
+                android:src="@drawable/icon1_old"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="@dimen/icon"
                 android:layout_height="@dimen/icon" />
