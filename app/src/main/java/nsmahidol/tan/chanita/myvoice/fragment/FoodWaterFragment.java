@@ -29,6 +29,7 @@ public class FoodWaterFragment extends Fragment{
 //        Setup Constant
         setupConstant(savedInstanceState);
 
+
 //        Show Image
         showImage();
 
