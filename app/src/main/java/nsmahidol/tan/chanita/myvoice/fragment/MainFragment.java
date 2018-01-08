@@ -128,7 +128,9 @@ public class MainFragment extends Fragment {
                 builder.setSingleChoiceItems(charSequences, -1, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        intGender[0] = i;
+                        intGender[0] = i;   // 0 ==> Boy, 1 ==> Girl
+
+
 
                         Log.d("30SepV1", "เพศที่เลือก ==> " + intGender[0]);
                         saveGender(intGender[0]);
