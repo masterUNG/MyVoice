@@ -31,7 +31,42 @@ public class FoodWaterFragment extends Fragment{
 //        Show Image
         showImage();
 
+//        ChoosedImage Controller
+        chooseImageController();
+
     }    // onActivity
+
+    private void chooseImageController() {
+
+        final int[] drinkInts = new int[]{R.drawable.drink_boy, R.drawable.drink_girl};
+        final int[] eatInts = new int[]{R.drawable.eat_boy, R.drawable.eat_girl};
+        final int[] choosedInts = new int[]{R.drawable.drink_boy};
+
+        drinkImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                choosedInts[0] = drinkInts[genderAnInt];
+                showChoose(choosedInts[0]);
+            }
+        });
+
+        eatImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                choosedInts[0] = eatInts[genderAnInt];
+                showChoose(choosedInts[0]);
+            }
+        });
+
+    }   // chooseImage
+
+    private void showChoose(int choosedInt) {
+
+        ImageView imageView = getView().findViewById(R.id.imvChoosed);
+        imageView.setImageResource(choosedInt);
+        imageView.setVisibility(View.VISIBLE);
+
+    }
 
     private void showImage() {
         drinkImageView = getView().findViewById(R.id.imvDrink);

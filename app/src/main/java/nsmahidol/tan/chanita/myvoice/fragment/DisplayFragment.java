@@ -25,6 +25,7 @@ public class DisplayFragment extends Fragment {
     private String detailString;
     private String tag = "8JanV1";
     private int genderAnInt = 0;
+    private boolean aBoolean = true;
 
     public static DisplayFragment displayInstance(String detailString) {
 
