@@ -56,6 +56,7 @@ public class DisplayFragment extends Fragment{
                 getActivity().getSupportFragmentManager().popBackStack();
 
 
+
             }
         });
 
